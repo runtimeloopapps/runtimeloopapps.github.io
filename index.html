@@ -286,6 +286,14 @@
     .app .btn-primary:hover { background: #22190d; }
     .app .btn-secondary { background: transparent; border-color: var(--sand); color: var(--ink); }
     .app .btn-secondary:hover { border-color: var(--clay); }
+    /* Not a link until the app is live on Play: a dashed, quiet pill. */
+    .app .btn-soon {
+      border: 2px dashed var(--sand);
+      background: transparent;
+      color: var(--clay);
+      cursor: default;
+    }
+    .app .btn-soon:hover { transform: none; border-color: var(--sand); }
     .app a:focus-visible { outline-color: var(--marigold); }
 
     .more { margin: 20px 0 0; color: var(--muted); font-size: 15px; }
@@ -362,7 +370,8 @@
       font-weight: 800;
       letter-spacing: -.02em;
       color: var(--accent-2);
-      word-break: break-all;
+      /* Break only where the <wbr> in the markup allows (before the @), never mid-word. */
+      overflow-wrap: anywhere;
     }
     .email:hover { text-decoration: underline; text-underline-offset: 6px; }
 
@@ -486,7 +495,9 @@
               <li>Collects no data</li>
             </ul>
             <div class="actions">
-              <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.runtimeloop.hatekhori">View on Google Play</a>
+              <!-- On launch day, replace this span with:
+                   <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.runtimeloop.hatekhori">View on Google Play</a> -->
+              <span class="btn btn-soon">Coming soon to Google Play</span>
               <a class="btn btn-secondary" href="hatekhori/privacy-policy.html">Privacy policy</a>
             </div>
           </div>
@@ -605,7 +616,7 @@
           <div class="eyebrow">Contact</div>
           <h3 id="contact-title">More apps are on the way.</h3>
           <p>Questions, feedback or support for any RuntimeLoop app:</p>
-          <a class="email" href="mailto:runtimeloop.apps@gmail.com">runtimeloop.apps@gmail.com</a>
+          <a class="email" href="mailto:runtimeloop.apps@gmail.com">runtimeloop.apps<wbr>@gmail.com</a>
         </div>
       </div>
     </section>
